@@ -1,7 +1,9 @@
 # WHID Mobile connector
 
 WHID Mobile Connector is designed to be a user-friendly mobile app allowing you to easily control your WHID gadget(s). 
-Please, refer to [WHID](https://github.com/whid-injector/WHID) if you want more information about HID attacks and/or the concept behind this "USB-key". 
+Please, refer to [WHID](https://github.com/whid-injector/WHID) if you want more information about HID attacks and/or the concept behind this "USB-key".
+
+Official link for the WHID Mobile Connector on the Play store is here [https://play.google.com/store/apps/details?id=whid.usb.injector](https://play.google.com/store/apps/details?id=whid.usb.injector).
 
 # Technical overview
 
