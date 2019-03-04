@@ -1,0 +1,136 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Advanced Settings
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+<!-- accesspointmode: 1
+hidden: 0
+ssid: Exploit
+password: DotAgency
+channel: 6
+ -->
+  <ion-content padding>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Wi-Fi Configuration</ion-card-title>
+        <ion-card-subtitle>This section is reserved to Wi-Fi configuration.</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-list>
+              <ion-radio-group>
+                <ion-list-header>
+                  <ion-label>Access point mode</ion-label>
+                </ion-list-header>
+                <ion-item>
+                  <ion-label>Create new one</ion-label>
+                  <ion-radio slot="start" value="1" checked></ion-radio>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Joining existing one</ion-label>
+                  <ion-radio slot="start" value="0"></ion-radio>
+                </ion-item>
+              </ion-radio-group>
+            </ion-list>
+            <ion-item>
+                <ion-label floating>SSID: </ion-label>
+                <ion-input [(ngModel)]="ssid" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Password: </ion-label>
+                <ion-input [(ngModel)]="password" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Select channel: </ion-label>
+                <ion-select [(ngModel)]="channel" placeholder="Channel">
+                    <ion-select-option *ngFor="let valChannel of channels" [value]="valChannel" [selected]="valChannel === channel? true: null" >{{valChannel}}</ion-select-option>
+                </ion-select>
+                <!-- <ion-label floating>Channel: </ion-label>
+                <ion-input [(ngModel)]="channel" type="text"></ion-input> -->
+            </ion-item>
+          </ion-card-content>
+    </ion-card>
+<!-- local_IPstr: 192.168.1.1
+gatewaystr: 192.168.1.1
+subnetstr: 255.255.255.0-->
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>IP Configuration</ion-card-title>
+          <ion-card-subtitle>This section is reserved to IP configuration.</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-item>
+                <ion-label floating>Local IP: </ion-label>
+                <ion-input [(ngModel)]="local_IPstr" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Gateway: </ion-label>
+                <ion-input [(ngModel)]="gatewaystr" type="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Subnet: </ion-label>
+                <ion-input [(ngModel)]="subnetstr" type="text"></ion-input>
+            </ion-item>
+          </ion-card-content>
+      </ion-card>
+
+      <!-- update_username: admin
+      update_password: hacktheplanet
+      -->
+      <ion-card>
+          <ion-card-header>
+            <ion-card-title>User Configuration</ion-card-title>
+            <ion-card-subtitle>This section is reserved to User configuration.</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-item>
+                  <ion-label floating>Username: </ion-label>
+                  <ion-input [(ngModel)]="update_username" type="text"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating>Password: </ion-label>
+                  <ion-input [(ngModel)]="update_password" type="text"></ion-input>
+              </ion-item>
+            </ion-card-content>
+        </ion-card>
+
+        <!-- DelayLength: 2000
+        LivePayloadDelay: 3000
+        autopwn: 0
+        autopayload: /payloads/payload.txt
+        SETTINGS: 1 -->
+  
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title>Payload settings</ion-card-title>
+              <ion-card-subtitle>This section is reserved to payload settings.</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-item>
+                    <ion-label floating>Delay length: </ion-label>
+                    <ion-input [(ngModel)]="DelayLength" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Live Payload Delay: </ion-label>
+                    <ion-input [(ngModel)]="LivePayloadDelay" type="text"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label floating>Autopwn: </ion-label>
+                    <ion-toggle [(ngModel)]="autopwnStatus" [checked]="autopwnStatus === true" [disabled]="remotePayloads.length == 0"></ion-toggle>
+                </ion-item>
+                <ion-item [hidden]="autopwnStatus === false">
+                    <ion-label floating>Automatic payload: </ion-label>
+                    <!-- <ion-input [(ngModel)]="autopayload" type="text"></ion-input> -->
+                    <ion-select [(ngModel)]="autopayload" placeholder="Payload">
+                        <ion-select-option *ngFor="let remotePayload of remotePayloads" [value]="remotePayload">{{remotePayload}}</ion-select-option>
+                    </ion-select>    
+                </ion-item>
+              </ion-card-content>
+          </ion-card>
+          <ion-button color="danger" expand="full" (click)="presentSaveSettingsAlert()">Save settings</ion-button>
+  </ion-content>

@@ -1,0 +1,50 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: beevelop/ionic
+    steps:
+      - checkout
+      - run:
+          name: Install license
+          command: (echo y; echo y; echo y; echo y; echo y; echo y) | /opt/android/tools/bin/sdkmanager "platforms;android-27"
+      - run:
+          name: Install node modules
+          command: npm install
+      - run:
+          name: Change version
+          command: |
+            version=`date --date="$(date +%Y-%m-%d)" +'%Y_%m_%d'`
+            sed -i "s/Development/$version/" /root/project/src/app/app.component.ts
+      - run:
+          name: Building android
+          command: ionic cordova build android
+      - run:
+          name: Copy artifact
+          command: cp /root/project/platforms/android/app/build/outputs/apk/debug/app-debug.apk /root/project/app-debug.apk
+      - persist_to_workspace:
+          root: .
+          paths:
+            - app-debug.apk          
+      - store_artifacts:
+          path: /root/project/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+  publish-github-release:
+    docker:
+      - image: circleci/golang:1.8
+    steps:
+      - attach_workspace:
+          at: ~/tmp/workspace
+      - checkout
+      - run:
+          name: Publish release on Github
+          command: |
+            go get github.com/tcnksm/ghr
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete debug ~/tmp/workspace/app-debug.apk
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - publish-github-release:
+          requires:
+              - build

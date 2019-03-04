@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>  
+      <ion-title>Windows Payloads</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Windows</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-button (click)="sendCommand('Press:131+114')">GUI + r</ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button (click)="sendCommand('Press:130+197')">Alt + F4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button (click)="sendCommand('PrintLine:cmd')">CMD + EnterKey</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button (click)="sendCommand('PrintLine:osk')">OSK + EnterKey</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button (click)="sendCommand('Press:128+130+212')">Ctrl + Alt + Del</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button (click)="sendCommand('Press:128+129+177')">Ctrl + Shift + Esc</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+</ion-content>

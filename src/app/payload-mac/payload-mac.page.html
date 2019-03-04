@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>  
+      <ion-title>Mac payloads</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Mac</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:122')">Right of Left Shift Key, z</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:47')">Left or Right Shift key, /</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:131+32')">Cmd + Space</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>  
+</ion-content>

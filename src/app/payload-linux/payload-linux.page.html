@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+      </ion-buttons>  
+      <ion-title>Linux Payloads</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Linux</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:134+195')">Alt + F2</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('PrintLine:gnome-terminal')">gnome-terminal + EnterKey</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

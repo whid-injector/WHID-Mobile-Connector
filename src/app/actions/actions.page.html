@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        Actions
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-title>IP Configuration</ion-card-title>
+        <ion-card-subtitle>This section is reserved to advanced users. Make sure that you know exactly what you're doing. Restore will not be possible</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-button color="danger" (click)="presentChangeIPAlert()">Update WHID IP</ion-button>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-header>
+          <ion-card-title>Reboot</ion-card-title>
+          <ion-card-subtitle>In case of need, you can actually reboot your WHID from here. Just make sure you're not currently receiving something in the same time</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+            <ion-button color="danger" (click)="presentRebootAlert()">Reboot</ion-button>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+          <ion-card-header>
+            <ion-card-title>Format</ion-card-title>
+            <ion-card-subtitle>In case of need, might want to format the WHID for some reasons, here it is.</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+              <ion-button color="danger" (click)="presentFormatAlert()">Format</ion-button>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-card-header>
+              <ion-card-title>Upgrade</ion-card-title>
+              <ion-card-subtitle>In case of upgrade for fetching a new firmware, have fun!</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-button color="danger" (click)="presentUpgradeAlert()">Upgrade</ion-button>
+            </ion-card-content>
+          </ion-card>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>  
+    <ion-title>Bios payloads</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>Bios</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:194')">F1</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:195')">F2</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:212')">DEL</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:177')">ESC</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+</ion-content>

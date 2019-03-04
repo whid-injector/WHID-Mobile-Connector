@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-button slot="end" [disabled]="items.length == 0" (click)="flush()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    <ion-title>
+      My Payloads
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-refresher (ionRefresh)="refresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+  <ion-list> 
+    <ion-searchbar placeholder="Filter Payloads" (ionChange)="doFilter($event.target.value)"></ion-searchbar>
+    <ion-item *ngFor="let item of filteredData">
+      <ion-icon [name]="item.icon" slot="start"></ion-icon>
+      <div class="item-note" (click)=passPayloadToLiveMode(item)>
+          {{item.platform != null? item.platform: 'Custom'}}: {{item.title}} - <span style="color: grey; font-size: 70%">{{item.note | slice:0:60}}...</span>
+      </div>
+      <ion-button slot="end" (click)="dialogDelete(item)"><ion-icon name="remove"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-card *ngIf="items.length == 0">
+      <ion-card-header>
+        <ion-card-title>No payloads</ion-card-title>
+        <ion-card-subtitle>Snap! Seems you've got no payload but you're not that far away from getting one: </ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+          <ion-button (click)="passPayloadToLiveMode(null)">Create payload</ion-button>
+        <!-- <ion-row>
+          <ion-col>
+            <ion-button (click)="sendText()" [disabled]="command.length == 0">Send Text</ion-button>
+          </ion-col>
+          <ion-col>
+              <ion-button (click)="sendTextAndEnter()" [disabled]="command.length == 0">Send Text + Enter</ion-button>
+          </ion-col>
+        </ion-row> -->
+      </ion-card-content>
+    </ion-card>  
+  <!--
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title }}</b>
+    </div>
+  -->
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-button slot="end" [hidden]="title == null" (click)="newPayload()">
+          New&nbsp;<ion-icon name="create"></ion-icon>
+        </ion-button>
+      <ion-button slot="end" [disabled]="livePayload.length == 0" (click)="savePayload()">
+        Save&nbsp;<ion-icon name="save"></ion-icon>
+      </ion-button>
+      <ion-title>
+        <span [hidden]="title !== null">
+            Live Payload Mode
+        </span>
+        <span [hidden]="title == null">
+            <i>Editing: {{ title }} scriptlet</i>
+          </span>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+  <ion-item>
+      <ion-textarea [(ngModel)]="livePayload" placeholder="{{ livePayloadPlaceholder }}" rows=20></ion-textarea>
+    </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="add('CustomDelay: ')" color="medium">CUSTOMDELAY</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+          <ion-button (click)="add('DefaultDelay: ')" color="medium">DEFAULTDELAY</ion-button>
+        </ion-col>
+    </ion-row>
+  <ion-row>
+      <ion-col>
+        <ion-button (click)="add('Print: ')" color="medium">PRINT</ion-button>
+      </ion-col>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-button (click)="add('PrintLine: ')" color="medium">PRINTLINE</ion-button>
+      </ion-col>
+    </ion-row>
+  <ion-row>
+      <ion-col>
+        <ion-button (click)="add('Press: ')" color="medium">PRESS</ion-button>
+      </ion-col>
+      <ion-col>
+          <ion-button (click)="add('BlinkLED: ')" color="medium">BLINKLED</ion-button>
+      </ion-col>
+      <ion-col>
+          <ion-button (click)="add('Rem: ')" color="medium">REM</ion-button>
+      </ion-col>      
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="send()" expand="full" [disabled]="livePayload.length == 0">SEND</ion-button>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-col>
+        <ion-button (click)="presentUploadAlert()" expand="full" color="danger" [disabled]="livePayload.length == 0">UPLOAD</ion-button>
+      </ion-col>
+    </ion-row> -->
+    </ion-grid>
+  </ion-content>

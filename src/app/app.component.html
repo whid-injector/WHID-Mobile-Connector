@@ -1,0 +1,36 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar>
+          <!-- <ion-title>WHID Injector</ion-title> -->
+            <ion-avatar slot="start">
+              <img src="/assets/icon/logo.png">
+            </ion-avatar>
+            <ion-label>&nbsp;&nbsp;WHID Injector</ion-label>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-item>
+              <app-whid-check></app-whid-check>
+          </ion-item>          
+        </ion-list>
+      </ion-content>
+      <ion-footer>
+          <ion-toolbar>
+              <span style="font-size: 80%">Version: {{ version }}</span>
+          </ion-toolbar>
+        </ion-footer>
+    </ion-menu>
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

@@ -1,0 +1,11 @@
+{
+  "name": "whid",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "proxies": [{
+    "path": "/",
+    "proxyUrl": "http://192.168.1.1"
+}]  
+}

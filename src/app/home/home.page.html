@@ -1,0 +1,164 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Text injection</ion-card-title>
+      <ion-card-subtitle>Type the text that you want to inject and then click either on "Send text" or "Send text + Enter".</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input [(ngModel)]="command" placeholder="eg. 'whoami'" type="text"></ion-input>
+      </ion-item>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="sendText()" [disabled]="command.length == 0">Send Text</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button (click)="sendTextAndEnter()" [disabled]="command.length == 0">Send Text + Enter</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+<br />
+  <!-- Default Segment -->
+<ion-segment [(ngModel)]="selectedPlatform">
+    <ion-segment-button value="Windows">
+      <ion-label><ion-icon name="bonfire"></ion-icon>&nbsp;Windows</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Linux">
+      <ion-label><ion-icon name="bug"></ion-icon>&nbsp;Linux</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Mac">
+        <ion-label><ion-icon name="flame"></ion-icon>&nbsp;Mac</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="Bios">
+          <ion-label><ion-icon name="nuclear"></ion-icon>&nbsp;Bios</ion-label>
+        </ion-segment-button>          
+  </ion-segment>
+
+  <!-- Windows part -->
+  <ion-card [hidden]="selectedPlatform !== 'Windows'">
+    <ion-card-header>
+      <ion-card-subtitle>Windows</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:128+129+177')">Ctrl + Shift + Esc</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:131+114')">GUI + r</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              <ion-button (click)="sendCommand('PrintLine:cmd')">CMD + EnterKey</ion-button>
+            </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:130+197')">Alt + F4</ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+              <ion-button (click)="sendCommand('Press:128+130+212')">Ctrl+Alt+Del</ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button (click)="sendCommand('PrintLine:osk')">OSK + EnterKey</ion-button>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card [hidden]="selectedPlatform !== 'Linux'">
+      <ion-card-header>
+        <ion-card-subtitle>Linux</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <ion-button (click)="sendCommand('Press:134+195')">Alt + F2</ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button (click)="sendCommand('PrintLine:gnome-terminal')">gnome-terminal + EnterKey</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+
+    <ion-card [hidden]="selectedPlatform !== 'Mac'">
+        <ion-card-header>
+          <ion-card-subtitle>Mac</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-row>
+            <ion-col>
+              <ion-button (click)="sendCommand('Press:122')">Right of Left Shift Key, z</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button (click)="sendCommand('Press:47')">Left or Right Shift key, /</ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button (click)="sendCommand('Press:131+32')">Cmd + Space</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card> 
+      
+      
+      <ion-card [hidden]="selectedPlatform !== 'Bios'">
+          <ion-card-header>
+            <ion-card-subtitle>Bios</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col>
+                <ion-button (click)="sendCommand('Press:194')">F1</ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button (click)="sendCommand('Press:195')">F2</ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button (click)="sendCommand('Press:212')">DEL</ion-button>
+              </ion-col>
+              <ion-col>
+                <ion-button (click)="sendCommand('Press:177')">ESC</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>      
+  <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-title>Shortcuts</ion-card-title>
+      <ion-card-subtitle>This section allows you to quickly go to your preffered target OS.</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="redirect('/payload-mac')"><ion-icon name="bonfire"></ion-icon>&nbsp;Windows</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="redirect('/payload-linux')"><ion-icon name="bug"></ion-icon>&nbsp;Linux</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="redirect('/payload-mac')"><ion-icon name="flame"></ion-icon>&nbsp;Mac</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="redirect('/payload-bios')"><ion-icon name="nuclear"></ion-icon>&nbsp;Bios</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card> -->
+</ion-content>
