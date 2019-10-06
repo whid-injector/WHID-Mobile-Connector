@@ -30,7 +30,7 @@ jobs:
           path: /root/project/platforms/android/app/build/outputs/apk/debug/app-debug.apk
   publish-github-release:
     docker:
-      - image: circleci/golang:1.8
+      - image: circleci/golang:1.12
     steps:
       - attach_workspace:
           at: ~/tmp/workspace
