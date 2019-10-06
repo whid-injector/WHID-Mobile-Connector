@@ -82,6 +82,15 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      const toggle = document.querySelector('#themeToggle');
+      console.log(toggle);
+
+      toggle.addEventListener('ionChange', (ev) => {
+        console.log(ev);
+        // ev.detail.checked
+        document.body.classList.toggle('dark', (<any>ev).detail.checked);
+      });
     });
   }
 }
