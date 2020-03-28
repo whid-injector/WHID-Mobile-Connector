@@ -28,6 +28,8 @@ const routes: Routes = [
   { path: 'payload-bios', loadChildren: './payload-bios/payload-bios.module#PayloadBiosPageModule' },
   { path: 'about', loadChildren: './about/about.module#AboutPageModule' },
   { path: 'intro', loadChildren: './intro/intro.module#IntroPageModule' },
+  { path: 'exfiltration', loadChildren: './exfiltration/exfiltration.module#ExfiltrationPageModule' },
+  { path: 'exfiltrated-data', loadChildren: './exfiltrated-data/exfiltrated-data.module#ExfiltratedDataPageModule' },
 ];
 
 @NgModule({

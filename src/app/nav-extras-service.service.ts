@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class NavExtrasService {
   
   payload: string;
+  exfiltratedData: any;
 
   constructor() { }
 
@@ -15,5 +16,13 @@ export class NavExtrasService {
 
   public getPayload() {
     return this.payload;
+  }
+
+  public setExfiltratedData(data) {
+    this.exfiltratedData = data;
+  }
+
+  public getExfiltratedData() {
+    return this.exfiltratedData;
   }
 }

