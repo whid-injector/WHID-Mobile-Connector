@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="whid.usb.injector" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="whid.usb.injector" version="0.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>WHID Injector</name>
     <description>This app works with the WHID Injector.</description>
     <author email="paulwebsec@gmail.com" href="http://whid.ninja/">WHID Injector Team</author>
@@ -86,6 +86,5 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^3.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-advanced-http" spec="2.0.4" />
-    <engine name="android" spec="7.1.4" />
     <engine name="browser" spec="5.0.4" />
 </widget>
