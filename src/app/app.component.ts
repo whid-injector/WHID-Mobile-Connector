@@ -30,7 +30,7 @@ export class AppComponent {
       icon: 'list'
     },
     {
-      title: 'Exfiltrated Payloads',
+      title: 'Exfiltrated Data',
       url: '/exfiltration',
       icon: 'nuclear'
     },
