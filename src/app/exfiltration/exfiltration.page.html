@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>Exfiltrated Payloads</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,7 +17,7 @@
       <!-- <ion-button color="danger" slot="end" (click)="delete(item)"><ion-icon name="trash"></ion-icon></ion-button> -->
     </ion-item>
   </ion-list>
-  <ion-card *ngIf="exfiltratedData.length == 0">
+  <ion-card *ngIf="exfiltratedData?.length == 0">
     <ion-card-header>
       <ion-card-title>No exfiltrated data (yet...) :(</ion-card-title>
       <ion-card-subtitle>Snap! Seems you've got no exfiltrated data but you're not that far away from getting one! </ion-card-subtitle>

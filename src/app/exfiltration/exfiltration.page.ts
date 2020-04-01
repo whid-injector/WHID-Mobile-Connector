@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ExfiltrationPage implements OnInit {
 
-  exfiltratedData = [];
+  exfiltratedData: string[];
 
   constructor(
     private api: ApiService,
@@ -19,7 +19,19 @@ export class ExfiltrationPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.exfiltratedData = this.api.retrieveExfiltratedData();
+
+    this.exfiltratedData = new Array();
+    var matches: RegExpExecArray;
+    this.api.retrieveExfiltratedData()
+    .then(res => {
+      console.log(res.data);
+      const regexp = /href="\/showpayload\?payload\=(\/[a-zA-Z0-9\.]+)"/g;
+      while ((matches = regexp.exec(res.data)) !== null) {
+        console.log(matches)
+        console.log(`${matches[0]} trouvé. Prochaine recherche à partir de ${regexp.lastIndex}.`);
+        this.exfiltratedData.push(matches[1].toString());
+      }
+    })
   }
 
   delete(uri: string) {
