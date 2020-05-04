@@ -71,9 +71,6 @@ export class AppComponent {
     }
   ];
 
-  public whidIp = "192.168.0.1";
-  // private rootPage: any;
-
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
