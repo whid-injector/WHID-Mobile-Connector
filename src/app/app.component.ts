@@ -12,7 +12,7 @@ import { ApiService } from './api.service';
 export class AppComponent {
 
   rootPage: any = "IntroPage";
-  public version = "0.0.4";
+  public version = "0.0.5";
   public appPages = [
     {
       title: 'Home',
