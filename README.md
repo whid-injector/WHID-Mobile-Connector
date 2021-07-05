@@ -73,6 +73,32 @@ If everything goes well, APK should be at:
 /path/to/my/folder/platforms/android/app/build/outputs/apk/debug/app-debug.apk
 ```
 
+# Build using Docker
+
+Go to the docker folder
+
+```bash
+cd WHID-Mobile-Connector/docker
+```
+
+Build and tag the image
+
+```bash
+docker build -t kbeflo/whid-mobile-connector-build:0.0.5 .
+```
+
+Start building WHID Mobile Connector using the image we've just built
+
+```bash
+docker run -it -v "$PWD"/..:/WHID-Mobile-Connector kbeflo/whid-mobile-connector-build:0.0.5 ionic cordova build android
+```
+
+You're now done! You can find the apk at
+
+```bash
+WHID-Mobile-Connector/platforms/android/app/build/outputs/apk/debug/app-debug.apk
+```
+
 # Contributing
 
 If you're still reading until here, you rock! *We're also eager to receive/get/integrate your contributions!* :)
