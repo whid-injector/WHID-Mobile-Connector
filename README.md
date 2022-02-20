@@ -24,6 +24,28 @@ Sure. Few steps to make the magic happen:
 
 - First, install node and npm (depends on your OS)
 
+For Windows users : 
+
+
+
+- Download Lastest NodeJS version here , install :
+
+```bash
+https://nodejs.org/en/download/
+```
+
+Then, install ```ionic```: 
+
+```bash
+npm install -g ionic
+```
+
+And the last step , install ```cordova```: 
+
+```bash
+npm i -g cordova 
+```
+
 For Mac users, ```brew``` will make it: 
 ```bash
 brew install node
