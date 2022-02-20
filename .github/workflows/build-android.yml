@@ -4,16 +4,17 @@ on: [push]
 
 jobs:
   build:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
     - name: Install latest cordova Install
       run: |
         npm install 
-        sudo npm install sass
+        npm install sass
         sudo npm install -g ionic
         sudo npm install -g cordova
+        sudo npm install -g cordova-android
     - name: Add Android platform
       run: |
         ionic cordova platform remove android
