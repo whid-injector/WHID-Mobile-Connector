@@ -40,6 +40,12 @@ Then, install ```ionic```:
 npm install -g ionic
 ```
 
+install ```sass```: 
+
+```bash
+npm install -g sass
+```
+
 And the last step , install ```cordova```: 
 
 ```bash
@@ -57,11 +63,26 @@ brew install node
 brew install npm
 ```
 
-Finally, install ```ionic```: 
+install ```sass```: 
+
+```bash
+npm install -g sass
+```
+
+
+install ```ionic```: 
 
 ```bash
 npm install -g ionic
 ```
+
+And the last step , install ```cordova```: 
+
+```bash
+npm install -g cordova 
+```
+
+
 ### 2. Clone the repo
 
 - Clone the repo using Git: 
@@ -85,6 +106,12 @@ ionic cordova platform add android
 ### 3. Build it
 
 Then, you're ready to build a resulting APK that can be deployed wherever you want. 
+
+You need to install Graddle if not already
+
+````bash
+https://gradle.org/install/
+````
 
 ```bash
 ionic cordova build android
