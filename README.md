@@ -8,7 +8,7 @@ The sources are still available here and you can still find latest APK on https:
 WHID Mobile Connector is designed to be a user-friendly mobile app allowing you to easily control your WHID gadget(s). 
 Please, refer to [WHID](https://github.com/whid-injector/WHID) if you want more information about HID attacks and/or the concept behind this "USB-key".
 
-Official link for the WHID Mobile Connector on the Play store is here [https://play.google.com/store/apps/details?id=whid.usb.injector](https://play.google.com/store/apps/details?id=whid.usb.injector).
+WHID Mobile Connector can be download on Nethunter store (Not updated yet, maybe soon) and on APKPURE wich is latest version https://apkpure.com/whid-mobile-connector/whid.usb.injector
 
 # Technical overview
 
