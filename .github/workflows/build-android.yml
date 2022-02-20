@@ -11,7 +11,7 @@ jobs:
     - name: Install latest cordova Install
       run: |
         npm install
-        npm install node-sass
+        npm install sass
         sudo npm install -g ionic
         sudo npm install -g cordova@latest
         sudo npm install -g cordova-android@latest
