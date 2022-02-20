@@ -10,11 +10,11 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install latest cordova Install
       run: |
-        npm install
-        npm install node-sass
+        npm install 
+        npm install sass
         sudo npm install -g ionic
-        sudo npm install -g cordova@latest
-        sudo npm install -g cordova-android@latest
+        sudo npm install -g cordova
+        sudo npm install -g cordova-android
     - name: Add Android platform
       run: |
         ionic cordova platform remove android

@@ -8,7 +8,7 @@ The sources are still available here and you can still find latest APK on https:
 WHID Mobile Connector is designed to be a user-friendly mobile app allowing you to easily control your WHID gadget(s). 
 Please, refer to [WHID](https://github.com/whid-injector/WHID) if you want more information about HID attacks and/or the concept behind this "USB-key".
 
-Official link for the WHID Mobile Connector on the Play store is here [https://play.google.com/store/apps/details?id=whid.usb.injector](https://play.google.com/store/apps/details?id=whid.usb.injector).
+WHID Mobile Connector can be download on Nethunter store (Not updated yet, maybe soon) and on APKPURE wich is latest version https://apkpure.com/whid-mobile-connector/whid.usb.injector
 
 # Technical overview
 
@@ -24,6 +24,34 @@ Sure. Few steps to make the magic happen:
 
 - First, install node and npm (depends on your OS)
 
+For Windows users : 
+
+
+
+- Download Lastest NodeJS version here , install :
+
+```bash
+https://nodejs.org/en/download/
+```
+
+Then, install ```ionic```: 
+
+```bash
+npm install -g ionic
+```
+
+install ```sass```: 
+
+```bash
+npm install -g sass
+```
+
+And the last step , install ```cordova```: 
+
+```bash
+npm install -g cordova 
+```
+
 For Mac users, ```brew``` will make it: 
 ```bash
 brew install node
@@ -35,11 +63,26 @@ brew install node
 brew install npm
 ```
 
-Finally, install ```ionic```: 
+install ```sass```: 
+
+```bash
+npm install -g sass
+```
+
+
+install ```ionic```: 
 
 ```bash
 npm install -g ionic
 ```
+
+And the last step , install ```cordova```: 
+
+```bash
+npm install -g cordova 
+```
+
+
 ### 2. Clone the repo
 
 - Clone the repo using Git: 
@@ -63,6 +106,12 @@ ionic cordova platform add android
 ### 3. Build it
 
 Then, you're ready to build a resulting APK that can be deployed wherever you want. 
+
+You need to install Graddle if not already
+
+````bash
+https://gradle.org/install/
+````
 
 ```bash
 ionic cordova build android

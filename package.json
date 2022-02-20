@@ -26,7 +26,6 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.0.0",
     "@ionic/storage": "^2.2.0",
-    "cordova-android": "^8.1.0",
     "cordova-browser": "5.0.4",
     "cordova-ios": "5.1.1",
     "cordova-plugin-advanced-http": "^2.4.1",
@@ -41,6 +40,7 @@
     "ionic-native-http-connection-backend": "^5.0.3",
     "native-run": "^0.3.0",
     "rxjs": "^6.3.3",
+    "sass": "^1.49.8",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
@@ -57,6 +57,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~10.12.0",
     "codelyzer": "~4.5.0",
+    "cordova-android": "^8.1.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.4",
