@@ -43,7 +43,7 @@ npm install -g ionic
 And the last step , install ```cordova```: 
 
 ```bash
-npm i -g cordova 
+npm install -g cordova 
 ```
 
 For Mac users, ```brew``` will make it: 
