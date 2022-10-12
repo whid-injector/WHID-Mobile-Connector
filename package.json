@@ -27,7 +27,7 @@
     "@ionic/angular": "^4.0.0",
     "@ionic/storage": "^2.2.0",
     "cordova-android": "^8.1.0",
-    "cordova-browser": "5.0.4",
+    "cordova-browser": "6.0.0",
     "cordova-ios": "5.1.1",
     "cordova-plugin-advanced-http": "^2.4.1",
     "cordova-plugin-device": "^2.0.2",
